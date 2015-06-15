@@ -7,10 +7,18 @@ GPS coordinates and date / time.
 `image_cleaner` removes all metadata from all images in a given folder.
 
 
-## Dependencies
+## Installation and Dependencies
 
 You need to install [Pillow](http://pillow.readthedocs.org/installation.html):
 
 ```bash
 $ pip install Pillow
 ```
+
+Now install image cleaner
+
+```bash
+$ pip install image_cleaner
+```
+
+And call it: `image_cleaner --help`
