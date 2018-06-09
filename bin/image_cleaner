@@ -37,7 +37,7 @@ def show_metadata(image_files):
                 if k in PIL.ExifTags.TAGS
             }
             for k, v in sorted(exif.items(), key=lambda n: n[0]):
-                if isinstance(v, basestring) and len(v) > 80:
+                if isinstance(v, str) and len(v) > 80:
                     print("  %s: %s (cropped to 80 characters, was %i "
                           "characters long)" % (k, v[:80], len(v)))
                 else:
