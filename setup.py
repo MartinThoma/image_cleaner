@@ -1,9 +1,19 @@
+# core modules
 from setuptools import find_packages
 from setuptools import setup
+import io
+import os
+
+
+def read(file_name):
+    """Read a text file and return the content as a string."""
+    with io.open(os.path.join(os.path.dirname(__file__), file_name),
+                 encoding='utf-8') as f:
+        return f.read()
 
 config = {
     'name': 'image_cleaner',
-    'version': '0.1.0',
+    'version': '0.1.1',
     'author': 'Martin Thoma',
     'author_email': 'info@martin-thoma.de',
     'maintainer': 'Martin Thoma',
@@ -15,15 +25,14 @@ config = {
     'url': 'https://github.com/MartinThoma/image_cleaner',
     'license': 'MIT',
     'description': 'remove metadata from images to enhance privacy',
-    'long_description': ("image_cleaner removes metadata from images. You "
-                         "might consider doing so before you upload "
-                         "them on public websites."),
+    'long_description': read('README.md'),
+    'long_description_content_type': 'text/markdown',
     'install_requires': [
         "argparse",
     ],
     'keywords': ['privacy', 'metadata', 'images', 'exif'],
     'download_url': 'https://github.com/MartinThoma/image_cleaner',
-    'classifiers': ['Development Status :: 3 - Alpha',
+    'classifiers': ['Development Status :: 7 - Inactive',
                     'Topic :: Utilities'],
     'zip_safe': False,
     'test_suite': 'nose.collector'

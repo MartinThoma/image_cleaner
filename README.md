@@ -1,8 +1,9 @@
 # image_cleaner
 Remove all metadata from images in a given folder.
 
-Images can contain lots of metadata. Most critical to privacy might be
-GPS coordinates and date / time.
+Images can contain lots of metadata. Most critical to privacy might be GPS
+coordinates and date / time. You might consider doing so before you upload them
+on public websites.
 
 `image_cleaner` removes all metadata from all images in a given folder.
 
