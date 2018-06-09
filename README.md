@@ -1,3 +1,6 @@
+[![PyPI version](https://badge.fury.io/py/image-cleaner.svg)](https://badge.fury.io/py/image-cleaner)
+[![Python Support](https://img.shields.io/pypi/pyversions/image-cleaner.svg)](https://pypi.org/project/image-cleaner/)
+
 Remove all metadata from images in a given folder.
 
 Images can contain lots of metadata. Most critical to privacy might be GPS

@@ -33,6 +33,7 @@ config = {
     'keywords': ['privacy', 'metadata', 'images', 'exif'],
     'download_url': 'https://github.com/MartinThoma/image_cleaner',
     'classifiers': ['Development Status :: 7 - Inactive',
+                    'Programming Language :: Python :: 3.6',
                     'Topic :: Utilities'],
     'zip_safe': False,
     'test_suite': 'nose.collector'
