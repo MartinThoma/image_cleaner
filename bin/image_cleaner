@@ -26,7 +26,10 @@ def show_metadata(image_files):
     for filename in image_files:
         print('## %s' % filename)
         img = PIL.Image.open(filename)
-        exif = img._getexif()
+        if not hasattr(img, '_getexif'):
+            exif = None
+        else:
+            exif = img._getexif()
         if exif is not None:
             exif = {
                 PIL.ExifTags.TAGS[k]: v
@@ -44,6 +47,13 @@ def show_metadata(image_files):
 
 
 def remove_metadata(image_files):
+    """
+    Remove EXIF metadata from an list of images.
+
+    Parameters
+    ----------
+    image_files : list of paths to images
+    """
     for filename in image_files:
         print('## %s' % filename)
 
@@ -59,9 +69,7 @@ def remove_metadata(image_files):
 
 
 def filter_images(filenames):
-    """
-    Return a list which contains images only.
-    """
+    """Return a list which contains images only."""
     # TODO: Consider using https://docs.python.org/2/library/imghdr.html
     endings = ['jpg', 'png', 'gif', 'jpeg']
     filtered = []

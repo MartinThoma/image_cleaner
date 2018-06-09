@@ -13,7 +13,7 @@ def read(file_name):
 
 config = {
     'name': 'image_cleaner',
-    'version': '0.1.1',
+    'version': '0.1.2',
     'author': 'Martin Thoma',
     'author_email': 'info@martin-thoma.de',
     'maintainer': 'Martin Thoma',

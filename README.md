@@ -1,4 +1,3 @@
-# image_cleaner
 Remove all metadata from images in a given folder.
 
 Images can contain lots of metadata. Most critical to privacy might be GPS
