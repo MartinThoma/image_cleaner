@@ -3,11 +3,14 @@
 
 """Example for a simple program with a command line parser."""
 
+# Core Library modules
 import os
 from os import listdir
 from os.path import isfile, join
-import PIL.Image
+
+# First party modules
 import PIL.ExifTags
+import PIL.Image
 
 
 def main(args):
@@ -41,7 +44,7 @@ def show_metadata(image_files):
                     print("  %s: %s (cropped to 80 characters, was %i "
                           "characters long)" % (k, v[:80], len(v)))
                 else:
-                    print("  %s: %s" % (k, v))
+                    print("  {}: {}".format(k, v))
         else:
             print("  No metadata found.")
 
