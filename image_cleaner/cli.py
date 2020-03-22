@@ -14,8 +14,11 @@ import PIL.Image
 
 
 def main(args):
-    onlyfiles = [os.path.join(args.folder, f) for f in listdir(args.folder)
-                 if isfile(join(args.folder, f))]
+    onlyfiles = [
+        os.path.join(args.folder, f)
+        for f in listdir(args.folder)
+        if isfile(join(args.folder, f))
+    ]
     image_files = filter_images(onlyfiles)
     if args.show_metadata:
         show_metadata(image_files)
@@ -27,9 +30,9 @@ def main(args):
 
 def show_metadata(image_files):
     for filename in image_files:
-        print('## %s' % filename)
+        print("## %s" % filename)
         img = PIL.Image.open(filename)
-        if not hasattr(img, '_getexif'):
+        if not hasattr(img, "_getexif"):
             exif = None
         else:
             exif = img._getexif()
@@ -41,8 +44,10 @@ def show_metadata(image_files):
             }
             for k, v in sorted(exif.items(), key=lambda n: n[0]):
                 if isinstance(v, str) and len(v) > 80:
-                    print("  %s: %s (cropped to 80 characters, was %i "
-                          "characters long)" % (k, v[:80], len(v)))
+                    print(
+                        "  %s: %s (cropped to 80 characters, was %i "
+                        "characters long)" % (k, v[:80], len(v))
+                    )
                 else:
                     print("  {}: {}".format(k, v))
         else:
@@ -58,7 +63,7 @@ def remove_metadata(image_files):
     image_files : list of paths to images
     """
     for filename in image_files:
-        print('## %s' % filename)
+        print("## %s" % filename)
 
         image_file = open(filename)
         image = PIL.Image.open(image_file)
@@ -74,7 +79,7 @@ def remove_metadata(image_files):
 def filter_images(filenames):
     """Return a list which contains images only."""
     # TODO: Consider using https://docs.python.org/2/library/imghdr.html
-    endings = ['jpg', 'png', 'gif', 'jpeg']
+    endings = ["jpg", "png", "gif", "jpeg"]
     filtered = []
     for filename in filenames:
         for end in endings:
@@ -95,27 +100,38 @@ def is_valid_folder(parser, arg):
 
 def get_parser():
     from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
-    parser = ArgumentParser(description=__doc__,
-                            formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-f", "--folder",
-                        dest="folder",
-                        required=True,
-                        type=lambda x: is_valid_folder(parser, x),
-                        help="FOLDER to which an action gets applied",
-                        metavar="FOLDER")
-    parser.add_argument("-r", "--remove",
-                        action="store_true",
-                        dest="remove_metadata",
-                        default=False,
-                        help="remove metadata from images (cannot be undone!)")
-    parser.add_argument("-s", "--show",
-                        action="store_true",
-                        dest="show_metadata",
-                        default=False,
-                        help="show metadata of images")
+
+    parser = ArgumentParser(
+        description=__doc__, formatter_class=ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-f",
+        "--folder",
+        dest="folder",
+        required=True,
+        type=lambda x: is_valid_folder(parser, x),
+        help="FOLDER to which an action gets applied",
+        metavar="FOLDER",
+    )
+    parser.add_argument(
+        "-r",
+        "--remove",
+        action="store_true",
+        dest="remove_metadata",
+        default=False,
+        help="remove metadata from images (cannot be undone!)",
+    )
+    parser.add_argument(
+        "-s",
+        "--show",
+        action="store_true",
+        dest="show_metadata",
+        default=False,
+        help="show metadata of images",
+    )
     return parser
 
 
-if __name__ == "__main__":
+def entry_point():
     args = get_parser().parse_args()
     main(args)
