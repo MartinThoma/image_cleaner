@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """Example for a simple program with a command line parser."""
 
@@ -8,7 +7,7 @@ import os
 from os import listdir
 from os.path import isfile, join
 
-# First party modules
+# Third party modules
 import PIL.ExifTags
 import PIL.Image
 
@@ -49,7 +48,7 @@ def show_metadata(image_files):
                         "characters long)" % (k, v[:80], len(v))
                     )
                 else:
-                    print("  {}: {}".format(k, v))
+                    print(f"  {k}: {v}")
         else:
             print("  No metadata found.")
 
