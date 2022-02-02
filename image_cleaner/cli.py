@@ -64,8 +64,8 @@ def remove_metadata(image_files):
     for filename in image_files:
         print("## %s" % filename)
 
-        image_file = open(filename)
-        image = PIL.Image.open(image_file)
+        with open(filename) as image_file:
+            image = PIL.Image.open(image_file)
 
         # next 3 lines strip exif
         data = list(image.getdata())
