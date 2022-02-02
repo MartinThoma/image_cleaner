@@ -1,3 +1,10 @@
+maint:
+	pip install -r requirements/dev.txt
+	pre-commit autoupdate && pre-commit run --all-files
+	pip-compile -U setup.py
+	pip-compile -U requirements/ci.in
+	pip-compile -U requirements/dev.in
+
 docs:
 	python setup.py upload_docs --upload-dir docs/_build/html
 
@@ -6,7 +13,7 @@ localinstall:
 
 upload:
 	make clean
-	python3 setup.py sdist bdist_wheel && twine upload dist/*
+	python setup.py sdist bdist_wheel && twine upload -s dist/*
 
 test:
 	nosetests --with-coverage --cover-erase --cover-package image_cleaner --logging-level=INFO --cover-html

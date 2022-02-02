@@ -1,5 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/image-cleaner.svg)](https://badge.fury.io/py/image-cleaner)
 [![Python Support](https://img.shields.io/pypi/pyversions/image-cleaner.svg)](https://pypi.org/project/image-cleaner/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Remove all metadata from images in a given folder.
 
