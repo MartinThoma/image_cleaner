@@ -4,5 +4,5 @@
 #
 #    pip-compile setup.py
 #
-pillow==9.0.0
+pillow==9.0.1
     # via image-cleaner (setup.py)
